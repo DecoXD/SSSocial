@@ -32,7 +32,7 @@ const SignUpForm = () => {
 
   const navigate = useNavigate()
   //context
-  const {checkAuthUser,isLoading}  = useUserContext()
+  const {checkAuthUser}  = useUserContext()
 
   const form = useForm<z.infer<typeof SignupValidation>>({
     resolver: zodResolver(SignupValidation),
@@ -78,7 +78,7 @@ const SignUpForm = () => {
         <div className="sm:w-420 flex-center flex-col">
           <img src="/assets/images/logo.svg" alt="logo" />
           <h2 className="h3-bold md:h2-bold">Create a New Account.</h2>
-          <p className="text-light-3 small-medium md:base-regular mt-2">to use MyPiece, please enter your account details</p>
+          <p className="text-light-3 small-medium md:base-regular mt-2 text-center">to use SSRH Connection, please enter your account details</p>
           <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-4 w-full mt-4 text-dark-1">
 
               <FormField
