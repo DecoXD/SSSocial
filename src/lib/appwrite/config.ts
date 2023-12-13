@@ -12,8 +12,6 @@ export const appwriteConfig = {
 }
 
 export const client = new Client()
-console.log(appwriteConfig.projectId)
-console.log(appwriteConfig.url)
 client.setProject(appwriteConfig.projectId)
 client.setEndpoint(appwriteConfig.url)
 
