@@ -5,7 +5,7 @@ import { z } from "zod"
 import { useForm } from "react-hook-form"
 //shardcn
 import { Button } from "@/components/ui/button"
-import {Form,FormControl,FormDescription,FormField,FormItem,FormLabel,FormMessage,} from "@/components/ui/form"
+import {Form,FormControl,FormField,FormItem,FormLabel,FormMessage,} from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
   //toast
 import { useToast } from "@/components/ui/use-toast"
@@ -78,19 +78,17 @@ const SignInForm = () => {
           <img src="/assets/images/logo.svg" alt="logo" />
           <h2 className="h3-bold md:h2-bold">Log in to your account.</h2>
           <p className="text-light-3 small-medium md:base-regular mt-2 text-center">to use SSRH Connection, please enter your account details</p>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-4 w-full mt-4 text-dark-1">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-4 w-full mt-4 ">
             <FormField
               control={form.control}
               name="email"
               render={({ field }) => (
-                <FormItem>
+                <FormItem >
                   <FormLabel>Username</FormLabel>
-                  <FormControl>
+                  <FormControl className="text-dark-1" >
                     <Input placeholder="digite seu email" {...field} type="email"/>
                   </FormControl>
-                  <FormDescription>
-                    This isnt your public display email.
-                  </FormDescription>
+
                   <FormMessage />
                 </FormItem>
               )}
@@ -101,12 +99,10 @@ const SignInForm = () => {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>senha</FormLabel>
-                  <FormControl>
+                  <FormControl className="text-dark-1">
                     <Input placeholder="digite sua senha" {...field} type="password"/>
                   </FormControl>
-                  <FormDescription>
-                    This is your password.
-                  </FormDescription>
+
                   <FormMessage />
                 </FormItem>
               )}
