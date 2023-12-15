@@ -1,5 +1,5 @@
 import './globals.css'
-import { Routes,Route } from 'react-router-dom'
+import { Routes,Route,Navigate } from 'react-router-dom'
 
 import AuthLayout from './_auth/AuthLayout'
 import SignInForm from './_auth/forms/SignInForm'
@@ -7,8 +7,13 @@ import SignUpForm from './_auth/forms/SignUpForm'
 import RootLayout from './_root/RootLayout'
 import { Toaster } from './components/ui/toaster'
 import {Home,AllUsers,CreatePost,EditPost,Explore,PostDetails,Profile,Saved,UpdateProfile} from './_root/pages'//eslint-disable-line
+import { useUserContext } from './context/AuthContext'
 
 const App = () => {
+
+  const {isAuthenticated} = useUserContext()
+  console.log(isAuthenticated,'user')
+
   return (
 
     <main className='flex h-screen'>
@@ -22,7 +27,7 @@ const App = () => {
 
         {/* private routes */}
 
-        <Route element={<RootLayout/>}>
+        <Route element={isAuthenticated? <RootLayout/> : <Navigate to={'/sign-in'}/>}>
           <Route index element={<Home/>}/>
           <Route path='/explore' element={<Explore/>}/>
           <Route path='/saved' element={<Saved/>}/>

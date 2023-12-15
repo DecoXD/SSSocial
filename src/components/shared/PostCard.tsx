@@ -10,7 +10,7 @@ type PostCardProps = {
 
 const PostCard = ({post}:PostCardProps) => {
   const{user} = useUserContext();
-  console.log(post)
+
   if(!post.creator) return;
   return (
     <div className="post-card w-full">
