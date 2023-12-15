@@ -17,7 +17,7 @@ export async function createUserAccount(user:INewUser){
     if(!newAccount) throw Error;
     const avatarUrl = avatars.getInitials(user.name);
 
-    const newUser = await saveUserToDb({ //eslint-disable-line
+    await saveUserToDb({ //eslint-disable-line
       accountid:newAccount.$id,
       name:newAccount.name,
       email:newAccount.email,

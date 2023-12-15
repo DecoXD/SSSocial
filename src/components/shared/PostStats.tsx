@@ -1,6 +1,6 @@
 /* eslint-disable */
-import { useUserContext } from "@/context/AuthContext"
-import { useDeleteSavedPost, useLikePost, useSavePost } from "@/lib/react-query/queriesAndMutations"
+// import { useUserContext } from "@/context/AuthContext"
+import {  useLikePost } from "@/lib/react-query/queriesAndMutations"
 import { checkIsLiked } from "@/lib/utils"
 import { Models } from "appwrite"
 import React, { useEffect, useState } from "react"
@@ -17,10 +17,10 @@ const PostStats = ({post,userId}:PostStatsProps) => {
   const [isSaved, setIsSaved] = useState(false)
   //react-query
   const {mutate:likePost} = useLikePost()
-  const {mutate:savePost} = useSavePost()
-  const {mutate:deleteSavedPost} = useDeleteSavedPost()
+  // const {mutate:savePost} = useSavePost()
+  // const {mutate:deleteSavedPost} = useDeleteSavedPost()
   //context
-  const {data:currentUser} = useUserContext()
+  // const {data:currentUser} = useUserContext()
 
 
   function handleLikePost(e:React.MouseEvent) {
@@ -39,6 +39,7 @@ const PostStats = ({post,userId}:PostStatsProps) => {
   }
 
   function handleSavePost() {
+    setIsSaved(false)// isso aqui ta errado, trocar
 
   }
 

@@ -75,7 +75,7 @@ const SignInForm = () => {
   return (
       <Form {...form}>
         <div className="sm:w-420 flex-center flex-col">
-          <img src="/assets/images/logo.svg" alt="logo" />
+          <img src="/assets/images/logo.png" alt="logo" />
           <h2 className="h3-bold md:h2-bold">Log in to your account.</h2>
           <p className="text-light-3 small-medium md:base-regular mt-2 text-center">to use SSRH Connection, please enter your account details</p>
           <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-4 w-full mt-4 ">

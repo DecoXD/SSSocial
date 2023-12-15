@@ -6,7 +6,7 @@ import SignInForm from './_auth/forms/SignInForm'
 import SignUpForm from './_auth/forms/SignUpForm'
 import RootLayout from './_root/RootLayout'
 import { Toaster } from './components/ui/toaster'
-import {Home,AllUsers,CreatePost,EditPost,Explore,LikedPosts,PostDetails,Profile,Saved,UpdateProfile} from './_root/pages'//eslint-disable-line
+import {Home,AllUsers,CreatePost,EditPost,Explore,PostDetails,Profile,Saved,UpdateProfile} from './_root/pages'//eslint-disable-line
 
 const App = () => {
   return (

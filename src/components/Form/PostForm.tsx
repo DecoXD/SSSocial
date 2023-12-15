@@ -26,7 +26,7 @@ type PostFormProps = {
 const PostForm = ({post}:PostFormProps) => { //eslint-disable-line
 
   //react query mutate clojure to call  function PostCreate from appwrite api
-  const {mutateAsync:postCreate,isLoading:isCreatingPost} = useCreatePost()//eslint-disable-line
+  const {mutateAsync:postCreate,/*isLoading:isCreatingPost */} = useCreatePost()//eslint-disable-line
 
   //navigate
   const navigate = useNavigate()
