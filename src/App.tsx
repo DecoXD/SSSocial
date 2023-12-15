@@ -11,8 +11,8 @@ import { useUserContext } from './context/AuthContext'
 
 const App = () => {
 
-  const {isAuthenticated} = useUserContext()
-  console.log(isAuthenticated,'user')
+  const {user} = useUserContext()
+
 
   return (
 
@@ -27,7 +27,7 @@ const App = () => {
 
         {/* private routes */}
 
-        <Route element={isAuthenticated? <RootLayout/> : <Navigate to={'/sign-in'}/>}>
+        <Route element={user.id? <RootLayout/> : <Navigate to={'/sign-in'}/>}>
           <Route index element={<Home/>}/>
           <Route path='/explore' element={<Explore/>}/>
           <Route path='/saved' element={<Saved/>}/>

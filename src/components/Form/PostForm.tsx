@@ -17,6 +17,8 @@ import { useUserContext } from "@/context/AuthContext"
 import { useToast } from "../ui/use-toast"
 import { ToastAction } from "../ui/toast"
 import { useNavigate } from "react-router-dom"
+import { useState } from "react"
+import { Loader } from "lucide-react"
 
 type PostFormProps = {
   post?:Models.Document
@@ -27,7 +29,7 @@ const PostForm = ({post}:PostFormProps) => { //eslint-disable-line
 
   //react query mutate clojure to call  function PostCreate from appwrite api
   const {mutateAsync:postCreate,/*isLoading:isCreatingPost */} = useCreatePost()//eslint-disable-line
-
+  const [posting,setPosting] = useState(false)
   //navigate
   const navigate = useNavigate()
 
@@ -49,9 +51,14 @@ const PostForm = ({post}:PostFormProps) => { //eslint-disable-line
   //Define a submit handler.
   async function onSubmit(values: z.infer<typeof PostValidation>) {
 
+    if(posting) return
     const data:INewPost = {userId:user.id,...values }
 
+    setPosting(true)
+
     const newPost = await postCreate(data)
+
+    setPosting(true)
 
     if(!newPost) {
       return toast({
@@ -61,7 +68,7 @@ const PostForm = ({post}:PostFormProps) => { //eslint-disable-line
         action: <ToastAction altText="Try again">Try again</ToastAction>
       })
     }
-
+    setPosting(false)
     navigate('/')
 
 
@@ -135,7 +142,9 @@ const PostForm = ({post}:PostFormProps) => { //eslint-disable-line
 
         <div className="flex gap-4 items-center justify-end">
         <Button className="shad-button_dark_4 p-6 " type="button">Cancel</Button>
-        <Button className="shad-button_primary whitespace-nowrap p-6" type="submit">Submit</Button>
+        <Button className="shad-button_primary whitespace-nowrap p-6" type="submit">
+          {posting? <Loader/> : 'Submit'}
+        </Button>
         </div>
       </form>
     </Form>
