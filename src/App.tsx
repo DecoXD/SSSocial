@@ -9,7 +9,9 @@ import { Toaster } from './components/ui/toaster'
 import {Home,AllUsers,CreatePost,EditPost,Explore,PostDetails,Profile,Saved,UpdateProfile} from './_root/pages'//eslint-disable-line
 
 
+
 const App = () => {
+
 
 
 
@@ -20,7 +22,7 @@ const App = () => {
       <Toaster/>
       <Routes>
         {/* public routes */}
-        <Route element={<AuthLayout/>}>
+        <Route element={ <AuthLayout/>}>
           <Route path='/sign-in' element={<SignInForm/>}/>
           <Route path='/sign-up' element={<SignUpForm/>}/>
         </Route>
