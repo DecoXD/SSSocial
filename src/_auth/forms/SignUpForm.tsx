@@ -76,10 +76,10 @@ const SignUpForm = () => {
   return (
       <Form {...form}>
         <div className="sm:w-420 flex-center flex-col">
-          <img src="/assets/images/logo.png" alt="logo" />
+          <img src="/assets/images/logo.svg" alt="logo" />
           <h2 className="h3-bold md:h2-bold">Create a New Account.</h2>
           <p className="text-light-3 small-medium md:base-regular mt-2 text-center">to use SSRH Connection, please enter your account details</p>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-4 w-full mt-4 text-dark-1">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-4 w-full mt-4 text-light-1">
 
               <FormField
                 control={form.control}
@@ -88,7 +88,7 @@ const SignUpForm = () => {
                   <FormItem>
                     <FormLabel>name</FormLabel>
                     <FormControl>
-                      <Input placeholder="digite seu nome" {...field} type="text" />
+                      <Input placeholder="digite seu nome" {...field} type="text"  className = "text-dark-1"/>
                     </FormControl>
                     <FormDescription>
                       This is your public display name.
@@ -104,7 +104,7 @@ const SignUpForm = () => {
                   <FormItem>
                     <FormLabel>Username</FormLabel>
                     <FormControl>
-                      <Input placeholder="digite seu nome de usuário" {...field} type="text"/>
+                      <Input placeholder="digite seu nome de usuário" {...field} type="text" className = "text-dark-1"/>
                     </FormControl>
                     <FormDescription>
                       This is your public display name.
@@ -120,7 +120,7 @@ const SignUpForm = () => {
                   <FormItem>
                     <FormLabel>Username</FormLabel>
                     <FormControl>
-                      <Input placeholder="digite seu email" {...field} type="email"/>
+                      <Input placeholder="digite seu email" {...field} type="email" className = "text-dark-1"/>
                     </FormControl>
                     <FormDescription>
                       This isnt your public display email.
@@ -136,7 +136,7 @@ const SignUpForm = () => {
                   <FormItem>
                     <FormLabel>senha</FormLabel>
                     <FormControl>
-                      <Input placeholder="digite sua senha" {...field} type="password"/>
+                      <Input placeholder="digite sua senha" {...field} type="password" className = "text-dark-1"/>
                     </FormControl>
                     <FormDescription>
                       This is your password.
